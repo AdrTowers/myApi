@@ -1,9 +1,11 @@
 const express = require("express");
 const server = express(); //this server is deaf
+var cors = require("cors");
 server.use(express.json());
 const { db: destinations } = require("./DB");
 const { getRandomId } = require("./HELPERS");
 
+server.use(cors());
 //CRUD
 //CREATE - POST
 server.post("/destinations", (req, res) => {
